@@ -1,0 +1,18 @@
+*{
+    margin: o;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    text-decoration: none !important;
+}
+
+/* bg main #7e4ff3 */
+/* bg sec #f8f7ff */
+/* bg button #6b57f7 */
+/* bg button hover #ddd9fc */
+/* #f5fef8 */
+
+/* dashboard width 200px */
+/* navbar height 60px */
+
+/* https://chakra-ui.com/docs/styled-system/style-props#background */
