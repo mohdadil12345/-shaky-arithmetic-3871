@@ -30,8 +30,8 @@ function Navbar() {
       boxShadow="base"
     >
       <Box>
-        <Heading color={'#7e4ff3'} fontFamily={'cursive'}>
-          EDU - CENTER
+        <Heading display={"flex"} color={'purple.500'}  alignItems={"flex-end"} border={"3px dashed"} p={"2px 15px"} borderRadius={"30px"}>
+          EDU <Text color={'red.500'} fontFamily={'cursive'} fontSize={"16px"}>CENTER</Text>
         </Heading>
       </Box>
       <Box display={[ "none","none","flex"]} alignItems="center" gap="10px">
@@ -39,7 +39,7 @@ function Navbar() {
           <Input
             pr="4.5rem"
             type={show ? 'text' : 'password'}
-            placeholder="Enter password"
+            placeholder="Search"
           />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>

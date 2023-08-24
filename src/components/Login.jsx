@@ -48,6 +48,7 @@ function Login() {
     }
   };
 
+
   return (
     <>
       <Button onClick={onOpen}>Login</Button>
@@ -96,6 +97,7 @@ function Login() {
         </ModalContent>
       </Modal>
     </>
+    
   );
 }
 
