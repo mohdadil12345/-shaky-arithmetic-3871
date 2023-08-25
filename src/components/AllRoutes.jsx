@@ -5,6 +5,7 @@ import About from './About';
 import SignUp from './SignUp';
 import { Box } from '@chakra-ui/react';
 import Courses from './Courses';
+import DetailsPage from './DetailsPage';
 
 function AllRoutes() {
   return (
@@ -19,7 +20,7 @@ function AllRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/courses" element={<Courses />} />
-        {/* <Route path="/signup" element={<SignUp />} /> */}
+        <Route path="/details/:id" element={<DetailsPage/>} />
       </Routes>
     </Box>
   );

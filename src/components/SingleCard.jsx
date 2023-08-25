@@ -12,36 +12,72 @@ import {
   Text,
 } from '@chakra-ui/react';
 import React from 'react';
+import DetailsPage from './DetailsPage';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-function SingleCard() {
+function SingleCard({
+  name,
+  duration,
+  lectureType,
+  otherDetails,
+  img,
+  teacherName,
+  subject,
+  price,
+  id,
+  item,
+}) {
+  const navig = useNavigate();
   
+
+  const Goto_Detailpage = id => {
+    //  console.log(id)
+
+    navig(`/details/${item.id}`);
+  };
+
+  const addTocartBtn = ()=> {
+    alert("kk")
+  }
+
   return (
     <Card maxW="sm">
-      <CardBody>
+      <CardBody onClick={() => Goto_Detailpage(id)}>
         <Image
-          src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+          src={img}
           alt="Green double couch with wooden legs"
           borderRadius="lg"
+          h={'194px'}
         />
-        <Stack mt="6" spacing="3">
-          <Heading size="md">Living room Sofa</Heading>
-          <Text>
-            This sofa is perfect for modern tropical spaces, baroque inspired
-            spaces, earthy toned spaces and for people who love a chic design
+        <Stack mt="6" spacing="1">
+          <Heading minH={'48px'} color="purple.800" size="md">
+            {name}
+          </Heading>
+          <Text color="purple.800" fontSize="2xl">
+            RS: {price}
           </Text>
+          <Text color="purple.800">{duration}</Text>
         </Stack>
-        <Box spacing="2" mt={'10px'} display={"flex"} justifyContent={"space-between"}>
-          <Text color="purple.600" fontSize="2xl">
-            RS: 450
-          </Text>
-          <Button variant="ghost" colorScheme="purple">
+      </CardBody>
+      <CardFooter h={'max-content'} pt={'0'}>
+        <Box
+          mt={'10px'}
+          display={'flex'}
+          justifyContent={'space-between'}
+          w={'100%'}
+        >
+          <Button
+            onClick={() => addTocartBtn()}
+            variant="solid"
+            colorScheme="purple"
+          >
             Add to cart
           </Button>
-          <Button variant="solid" colorScheme="purple">
+          <Button variant="solid" colorScheme="green">
             Buy now
           </Button>
         </Box>
-      </CardBody>
+      </CardFooter>
     </Card>
   );
 }

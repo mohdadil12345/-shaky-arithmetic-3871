@@ -1,38 +1,44 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react';
 
-export const authval = createContext()
+export const authval = createContext();
 
 const initialData = {
-  isAuth : false,
-  email : "",
-  password  : ""
-}
+  isAuth: false,
+  email: '',
+  password: '',
+};
 
-function ContextProvider({children}) {
+function ContextProvider({ children }) {
+  const [state, setstate] = useState(initialData);
+  const [cart, setcart] = useState([]);
+  const [myOrder, setmyOrder] = useState([]);
 
-  const [state, setstate] = useState(initialData)
+  const login = (checklogin) => {
+    setstate({
+      isAuth: true,
+      email: checklogin.email,
+      password: checklogin.password,
+      username : checklogin.username
+    });
+  };
 
-const login = (email, password)=> {
-  setstate({
-    isAuth : true,
-    email : email,
-    password  : password
-  })
-}
 
-const logout = ()=> {
-  setstate({
-    isAuth : false,
-    email : "",
-    password  : ""
-  })
-}
+  const logout = () => {
+    setstate({
+      isAuth: false,
+      email: '',
+      password: '',
+    });
+  };
+
+  const totalCartPrice = () => {};
+  const applyCoupan = () => {};
 
   return (
-   <authval.Provider value = {{state, login, logout}}>
-    {children}
-   </authval.Provider>
-  )
+    <authval.Provider value={{ state, login, logout, cart, setcart }}>
+      {children}
+    </authval.Provider>
+  );
 }
 
-export default ContextProvider
+export default ContextProvider;

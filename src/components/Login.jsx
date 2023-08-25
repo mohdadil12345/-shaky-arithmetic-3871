@@ -15,12 +15,15 @@ import {
   ModalBody,
   ModalCloseButton,
 } from '@chakra-ui/react';
-
+import { Navigate, useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react'
 function Login() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const { state, login } = useContext(authval);
+  const toast = useToast()
+  const nav = useNavigate()
 
   const email_fun = e => {
     setemail(e.target.value);
@@ -39,12 +42,30 @@ function Login() {
     let checklogin = userdata.find(
       item => item.email == email && item.password == password
     );
-    console.log(checklogin);
+    // console.log(checklogin);
     if (checklogin) {
-      alert('login succesfull');
+
+      toast({
+        title: 'Login successfull',
+        description: "Welcome back",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+        position:"top"
+      })
+
       login(checklogin);
+       nav("/")
+       onClose()
     } else {
-      alert('somehtin went wrong');
+      toast({
+        title: 'Wrong Credential',
+        description: "Username or Password is incorrect",
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+        position:"top"
+      })
     }
   };
 

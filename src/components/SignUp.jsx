@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useToast } from '@chakra-ui/react'
 import {
   Box,
   Button,
@@ -21,6 +22,7 @@ function SignUp() {
   const [password, setpassword] = useState("")
   const [username, setusername] = useState("")
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast()
 
  
   const user_fun = (e)=> {
@@ -35,7 +37,7 @@ function SignUp() {
 
   const signup_form = (e)=> {
     e.preventDefault()
-    console.log(username, email, password)
+    // console.log(username, email, password)
     let obj = {
       username : username,
       email : email,
@@ -51,6 +53,15 @@ function SignUp() {
     }else{
        localStorage.setItem("signup_data", JSON.stringify([obj]))
     }
+    toast({
+      title: 'Account created.',
+      description: "We've created your account for you.",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+      position:"top"
+    })
+    onClose()
 
   }
 
@@ -78,7 +89,7 @@ function SignUp() {
                     name="username"
                     onChange={e => user_fun(e)}
                   />
-                     <FormLabel>Password</FormLabel>
+                     <FormLabel>Email</FormLabel>
                   <Input
                     type="email"
                     name="email"

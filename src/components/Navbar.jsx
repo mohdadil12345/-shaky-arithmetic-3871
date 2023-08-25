@@ -8,12 +8,15 @@ import {
   Link,
   Text,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { HamburgerIcon, AddIcon, WarningIcon } from '@chakra-ui/icons'
+import { authval } from '../context/ContextProvider';
 
 function Navbar() {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+  const { state, login } = useContext(authval);
+  console.log(state)
   return (
     <Box
       className="navbar  flex_row"
@@ -30,7 +33,7 @@ function Navbar() {
       boxShadow="base"
     >
       <Box>
-        <Heading display={"flex"} color={'purple.500'}  alignItems={"flex-end"} border={"3px dashed"} p={"2px 15px"} borderRadius={"30px"}>
+        <Heading display={"flex"} color={'purple.500'}  alignItems={"flex-end"} border={"2px dashed"} p={"2px 15px"} borderRadius={"30px"}>
           EDU <Text color={'red.500'} fontFamily={'cursive'} fontSize={"16px"}>CENTER</Text>
         </Heading>
       </Box>
@@ -47,7 +50,8 @@ function Navbar() {
             </Button>
           </InputRightElement>
         </InputGroup>
-        <Text>Name</Text>
+
+        <Heading>{state.username}</Heading>
       </Box>
       <HamburgerIcon display={[ "flex" ,"flex","none"]}/>
       
