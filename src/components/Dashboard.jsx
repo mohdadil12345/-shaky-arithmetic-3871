@@ -79,7 +79,7 @@ function Dashboard() {
     >
       <Stack>
         {linkData.map(ele => (
-          <Link to={ele.link}>
+          <Link to={ele.link} key = {ele.id}>
             <Box
               _hover={{ bg: 'white', color: 'tomato', borderRadius: '4px' }}
               display={'flex'}
