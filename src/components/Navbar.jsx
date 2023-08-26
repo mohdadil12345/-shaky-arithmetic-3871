@@ -5,7 +5,9 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+
   Link,
+
   Text,
 } from '@chakra-ui/react';
 import React, { useContext } from 'react';
@@ -15,8 +17,14 @@ import { authval } from '../context/ContextProvider';
 function Navbar() {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
-  const { state, login } = useContext(authval);
-  console.log(state)
+  const { state, login , cartitem} = useContext(authval);
+ 
+const searchByname = (e)=> {
+  console.log(e.target.value)
+}
+
+
+
   return (
     <Box
       className="navbar  flex_row"
@@ -43,6 +51,7 @@ function Navbar() {
             pr="4.5rem"
             type={show ? 'text' : 'password'}
             placeholder="Search"
+            onChange={(e)=> searchByname(e)}
           />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -51,9 +60,11 @@ function Navbar() {
           </InputRightElement>
         </InputGroup>
 
-        <Heading>{state.username}</Heading>
+        <Text>{state.username}</Text>
       </Box>
       <HamburgerIcon display={[ "flex" ,"flex","none"]}/>
+
+      <Link mr={"400px"} href='/cart'>Cart : {cartitem.length}</Link>
       
     </Box>
   );

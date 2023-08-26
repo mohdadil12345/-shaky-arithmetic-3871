@@ -10,11 +10,13 @@ import {
   Image,
   Stack,
   Text,
+  useToast
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import DetailsPage from './DetailsPage';
 import { Navigate, useNavigate } from 'react-router-dom';
-
+import { authval } from '../context/ContextProvider';
+import axios from 'axios';
 function SingleCard({
   name,
   duration,
@@ -28,7 +30,9 @@ function SingleCard({
   item,
 }) {
   const navig = useNavigate();
-  
+
+  const { cartitem, setcartitem } = useContext(authval);
+  const toast = useToast()
 
   const Goto_Detailpage = id => {
     //  console.log(id)
@@ -36,9 +40,31 @@ function SingleCard({
     navig(`/details/${item.id}`);
   };
 
-  const addTocartBtn = ()=> {
-    alert("kk")
-  }
+  const addTocartBtn = item => {
+    console.log(item);
+    const isItemInCart = cartitem.some(cartItem => cartItem.id === item.id);
+
+    if (!isItemInCart) {
+      axios
+        .post(`https://semi-mock2.onrender.com/course-cart`, item)
+        .then(res => {
+          // console.log(res.data);
+          setcartitem([...cartitem, item]); 
+          toast({
+            title: 'item added to cart',
+            description: "Please go to cart to Buy now",
+            status: 'info',
+            duration: 9000,
+            isClosable: true,
+            position:'top-right'
+          })
+         
+        })
+        .catch(error => {
+          console.error('Error adding item to cart:', error);
+        });
+    }
+  };
 
   return (
     <Card maxW="sm">
@@ -67,7 +93,7 @@ function SingleCard({
           w={'100%'}
         >
           <Button
-            onClick={() => addTocartBtn()}
+            onClick={() => addTocartBtn(item)}
             variant="solid"
             colorScheme="purple"
           >

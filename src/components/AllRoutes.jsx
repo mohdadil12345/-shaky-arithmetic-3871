@@ -5,7 +5,11 @@ import About from './About';
 import SignUp from './SignUp';
 import { Box } from '@chakra-ui/react';
 import Courses from './Courses';
+import Payment from './Payment';
 import DetailsPage from './DetailsPage';
+import Cart from './Cart';
+import Orders from './Orders';
+import CourseDetail from './CourseDetail';
 
 function AllRoutes() {
   return (
@@ -21,6 +25,12 @@ function AllRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/details/:id" element={<DetailsPage/>} />
+        <Route path="/cart" element={<Cart/>} />
+        <Route path="/payments" element={<Payment/>} />
+        <Route path="/orders" element={<Orders/>} />
+        <Route path="/coursedetails" element={<CourseDetail/>} />
+       
+        
       </Routes>
     </Box>
   );
