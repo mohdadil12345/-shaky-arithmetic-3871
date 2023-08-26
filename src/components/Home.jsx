@@ -367,8 +367,8 @@ function Home() {
             p={'20px'}
             fontWeight={'bold'}
           >
-            <text>65787</text>
-            <text>Total Students</text>
+            <Text>65787</Text>
+            <Text>Total Students</Text>
           </Box>
           <Box
             display="flex"
@@ -381,8 +381,8 @@ function Home() {
             p={'20px'}
             fontWeight={'bold'}
           >
-            <text>65787</text>
-            <text>Total Students</text>
+            <Text>65787</Text>
+            <Text>Total Students</Text>
           </Box>
         </Box>
         <Box display="flex" gap="20px" mt={'20px'}>
@@ -397,8 +397,8 @@ function Home() {
             p={'20px'}
             fontWeight={'bold'}
           >
-            <text>65787</text>
-            <text>Total Students</text>
+            <Text>65787</Text>
+            <Text>Total Students</Text>
           </Box>
           <Box
             display="flex"
@@ -411,8 +411,8 @@ function Home() {
             p={'20px'}
             fontWeight={'bold'}
           >
-            <text>65787</text>
-            <text>Total Students</text>
+            <Text>65787</Text>
+            <Text>Total Students</Text>
           </Box>
         </Box>
       </Box>

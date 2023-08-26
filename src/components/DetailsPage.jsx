@@ -15,14 +15,17 @@ import {
     Text,
 } from '@chakra-ui/react';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FcApproval } from "react-icons/fc";
 import { FaStar } from "react-icons/fa";
+import Members from './Members';
+import { authval } from '../context/ContextProvider';
 function DetailsPage() {
     const { id } = useParams();
     const [data, setdata] = useState({});
     const [showData, setshowData] = useState(false);
+
 
     const fetchData = id => {
         axios.get(`https://semi-mock2.onrender.com/courses/${id}`).then(res => {
@@ -103,6 +106,7 @@ function DetailsPage() {
             ) : (
                 'loading'
             )}
+            <Members id={id}/>
         </>
     );
 }

@@ -1,4 +1,6 @@
 
+
+
 [
     {
         "name": "Building MicroServices in Java for Cloud",
@@ -91,7 +93,8 @@
         "img": "https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/7a622173-a4b0-4a10-afc7-729ac86d7eeb.png",
         "teacherName": "System Design",
         "subject": [
-            "java with dsa algorithm"
+            "Java",
+            "Dsa"
         ],
         "price": "50,000",
         "id": "4",
@@ -114,7 +117,7 @@
         "img": "https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/b1bcd6ad-37d0-4dfb-964d-81d9a9d4113d.png",
         "teacherName": "DECODE 2.o",
         "subject": [
-            "DSA"
+            "Dsa"
         ],
         "price": "35,000",
         "id": "5",
@@ -157,7 +160,7 @@
         ],
         "img": "https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/e39ffc2b-e0fd-43e0-86c5-b23ad314c0f0.png",
         "teacherName": "java algoruthm",
-        "subject": ["java", "dsa"],
+        "subject": ["Java", "Dsa"],
         "price": "40,000",
         "id": "7",
         "category": "Programming",

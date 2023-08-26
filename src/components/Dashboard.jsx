@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Button, Stack, color, Img } from '@chakra-ui/react';
 import Login from './Login';
 import { HamburgerIcon, AddIcon, WarningIcon } from '@chakra-ui/icons';
@@ -12,6 +12,8 @@ import {
   FaChalkboardTeacher,
   FaIdCardAlt,
 } from 'react-icons/fa';
+import Payment from './Payment';
+import { authval } from '../context/ContextProvider';
 
 let linkData = [
   {
@@ -30,8 +32,8 @@ let linkData = [
     iconName: <FaChalkboardTeacher />,
   },
   {
-    name: 'Events',
-    link: '/',
+    name: 'Payment',
+    link: '/payments',
     iconName: <FaRegBell />,
   },
   {
@@ -54,9 +56,21 @@ let linkData = [
     link: '/',
     iconName: <FaRegBell />,
   },
+  {
+    name: 'Orders',
+    link: '/orders',
+    iconName: <FaRegBell />,
+  },
+  {
+    name: 'Course Details',
+    link: '/coursedetails',
+    iconName: <FaRegBell />,
+  },
 ];
 
 function Dashboard() {
+  const { state, logout} = useContext(authval);
+
   return (
     <Box
       position="fixed"
@@ -67,7 +81,7 @@ function Dashboard() {
       h="calc(100vh - 60px)"
       className="navbar  flex_row"
       // bg="#7e4ff3"
-      bg={"purple.600"}
+      bg={'purple.600'}
       color="white"
       display={['none', 'none', 'flex']}
       flexDirection="column"
@@ -79,7 +93,7 @@ function Dashboard() {
     >
       <Stack>
         {linkData.map(ele => (
-          <Link to={ele.link} key = {ele.id}>
+          <Link to={ele.link} key={ele.id}>
             <Box
               _hover={{ bg: 'white', color: 'tomato', borderRadius: '4px' }}
               display={'flex'}
@@ -95,13 +109,7 @@ function Dashboard() {
         <Img w="200px" src={saly} alt="" />
       </Stack>
 
-      <Stack>
-        <Login />
-        <Stack>
-          <SignUp />
-        </Stack>
-        {/* <Button>Logout</Button> */}
-      </Stack>
+      <Stack>{state.isAuth ? <SignUp/> : <Login />}</Stack>
     </Box>
   );
 }
