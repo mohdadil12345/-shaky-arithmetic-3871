@@ -31,11 +31,7 @@ let linkData = [
     link: '/',
     iconName: <FaChalkboardTeacher />,
   },
-  {
-    name: 'Payment',
-    link: '/payments',
-    iconName: <FaRegBell />,
-  },
+
   {
     name: 'Finance',
     link: '/',
@@ -56,16 +52,7 @@ let linkData = [
     link: '/',
     iconName: <FaRegBell />,
   },
-  {
-    name: 'Orders',
-    link: '/orders',
-    iconName: <FaRegBell />,
-  },
-  {
-    name: 'Course Details',
-    link: '/coursedetails',
-    iconName: <FaRegBell />,
-  },
+
 ];
 
 function Dashboard() {
@@ -109,7 +96,7 @@ function Dashboard() {
         <Img w="200px" src={saly} alt="" />
       </Stack>
 
-      <Stack>{state.isAuth ? <SignUp/> : <Login />}</Stack>
+      <Stack>{state.isAuth ?  <Button onClick={logout}>Logout</Button>:<><Login /> <SignUp/></> }</Stack>
     </Box>
   );
 }

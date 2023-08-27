@@ -7,15 +7,19 @@ import {
   Heading,
   Image,
   Img,
-  Link,
+
+  List,
   Stack,
   Text,
+  list,
 } from '@chakra-ui/react';
 
 import React, { useContext, useEffect } from 'react';
 import { authval } from '../context/ContextProvider';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import Payment from './Payment';
+import { Link } from 'react-router-dom';
 // import { toast } from "react-hot-toast";
 
 function Cart() {
@@ -72,8 +76,19 @@ function Cart() {
                   <Heading size="md">{item.name}</Heading>
 
                   <Text py="2">
-                    Caffè latte is a coffee beverage of Italian origin made with
-                    espresso and steamed milk.
+
+                    Price : {item.price}
+             
+                     <Box>
+                     {item.otherDetails.map((ele)=> (
+
+                      <Text> {ele}</Text>             
+
+                     ))}
+                     </Box>
+                         
+                   
+          
                   </Text>
 
                 </CardBody>
@@ -96,7 +111,6 @@ function Cart() {
             </Card>
           ))}
           <Box>
-            <Text>Total Price</Text>
             <Button onClick={BuyNow} variant="solid" colorScheme="purple">
               Buy Now
             </Button>
@@ -109,11 +123,12 @@ function Cart() {
             src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2p4bHhhNm1tcnF0ejVuMzVsdWM3MmI4YjdqbWtpM3UzN3psanIyZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/giXLnhxp60zEEIkq8K/giphy.gif"
             alt=""
           />
-          <Link href="/courses">
+            <Link to = "/">
             <Button mt={'40px'} variant="solid" colorScheme="purple">
-              Again Go for Shopping
+              Go to Dashboard Page
             </Button>
-          </Link>
+            </Link>
+         
         </Box>
       )}
     </>

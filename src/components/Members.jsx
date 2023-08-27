@@ -21,16 +21,23 @@ import { authval } from '../context/ContextProvider';
 
 function Members({ id }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { studentsData, coursemembers } = useContext(authval);
-  const [data, setdata] = useState(studentsData);
+  const { student } = useContext(authval);
+  const [data, setdata] = useState(student);
+
+  const cours = () => {
+    let filter_data = student.filter(e=> e.course_id == id)
+    setdata(filter_data)
+  };
 
   useEffect(() => {
-    coursemembers(id);
-  }, []);
+    cours();
+    console.log(id)
+  }, [id]);
 
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
+      <Button onClick={onOpen}>Class Members</Button>
+      
 
       <Modal isOpen={isOpen} onClose={onClose} scrollBehavior={'inside'}>
         <ModalOverlay />
