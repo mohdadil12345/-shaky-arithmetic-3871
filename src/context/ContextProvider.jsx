@@ -7016,7 +7016,8 @@ function ContextProvider({ children }) {
   const [cartitem, setcartitem] = useState([]);
   const [myOrder, setmyOrder] = useState([]);
   const [studentsData, setstudentsData] = useState([]);
-
+  const [globaldata, setGlobalData] = useState([])
+  const [courdata, setCourdata] = useState([]);
 
   const login = (checklogin) => {
     setstate({
@@ -7052,7 +7053,7 @@ function ContextProvider({ children }) {
   const applyCoupan = () => {};
 
   return (
-    <authval.Provider value={{ state, login, logout, cartitem, setcartitem , studentsData , coursemembers , BuyNow, myOrder}}>
+    <authval.Provider value={{ state, login, logout, cartitem, setcartitem , studentsData , coursemembers , BuyNow, myOrder, globaldata, setGlobalData, courdata, setCourdata , student}}>
       {children}
     </authval.Provider>
   );

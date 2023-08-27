@@ -6,6 +6,7 @@ import "../src/App.css"
 import AllRoutes from './components/AllRoutes';
 import Dashboard from './components/Dashboard';
 import { Toaster } from 'react-hot-toast';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <Dashboard/>
       <AllRoutes/>
+      <Footer/>
       <Toaster/>
 
     </div>

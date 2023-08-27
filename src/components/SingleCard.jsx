@@ -63,6 +63,16 @@ function SingleCard({
         .catch(error => {
           console.error('Error adding item to cart:', error);
         });
+    }   else {
+      // Display a message if the item is already in the cart
+      toast({
+        title: 'item is already in cart',
+        description: "add new item",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+        position:"top"
+      })
     }
   };
 

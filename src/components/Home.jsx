@@ -11,6 +11,7 @@ import {
 import React from 'react';
 import saly from '../assests/Saly-10.png';
 import saly2 from '../assests/Saly-16.png';
+import Orders from './Orders';
 
 let data = [
   {
@@ -289,7 +290,7 @@ let data = [
     ],
     img: 'https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/5570d168-aebe-414b-9a9b-9d315ada6850.jpeg',
     teacherName: 'Targeted Batch for UPSC Aspirants',
-    subject: ["Maths"],
+    subject: ['Maths'],
     price: '7000',
   },
   {
@@ -308,7 +309,7 @@ let data = [
     ],
     img: 'https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/1d5f5df2-b527-49b3-9cb9-e13cad1846b5.jpeg',
     teacherName: 'Test series batch for UPSC Aspirants',
-    subject: ["Mains Test"],
+    subject: ['Mains Test'],
     price: '11999',
   },
   {
@@ -327,8 +328,16 @@ let data = [
     ],
     img: 'src="https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/57bb52ee-426e-4bb4-b29e-b85db49bd76b.png"',
     teacherName: 'Targeted Batch for UPSC Aspirants',
-    subject: ["Indian Economy", "Polity", "Geography", "Social", "Justice", "General science", "International Relations"],
-    price : "15999"
+    subject: [
+      'Indian Economy',
+      'Polity',
+      'Geography',
+      'Social',
+      'Justice',
+      'General science',
+      'International Relations',
+    ],
+    price: '15999',
   },
   {
     name: 'Titan 4.0  + UPSC Optional',
@@ -346,101 +355,54 @@ let data = [
     ],
     img: 'src="https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/57bb52ee-426e-4bb4-b29e-b85db49bd76b.png"',
     teacherName: 'Targeted Batch for UPSC Aspirants',
-    subject: ["Indian Economy", "Polity", "Geography", "Social", "Justice", "General science", "International Relations"],
-    price : "15999"
+    subject: [
+      'Indian Economy',
+      'Polity',
+      'Geography',
+      'Social',
+      'Justice',
+      'General science',
+      'International Relations',
+    ],
+    price: '15999',
   },
 ];
 
 function Home() {
   return (
-    <Box display="flex" gap="30px">
-      <Box w="50%">
-        <Box display="flex" gap="20px">
-          <Box
-            display="flex"
-            flexDirection={'column'}
-            boxShadow="base"
-            w="50%"
-            h="150px"
-            bg={'white'}
-            borderRadius={'16px'}
-            p={'20px'}
-            fontWeight={'bold'}
-          >
-            <Text>65787</Text>
-            <Text>Total Students</Text>
-          </Box>
-          <Box
-            display="flex"
-            flexDirection={'column'}
-            boxShadow="base"
-            w="50%"
-            h="150px"
-            bg={'white'}
-            borderRadius={'16px'}
-            p={'20px'}
-            fontWeight={'bold'}
-          >
-            <Text>65787</Text>
-            <Text>Total Students</Text>
+    <Box>
+      <Box>
+        <Box
+          display="flex"
+          gap="20px"
+          boxShadow="base"
+          bg={'white'}
+          borderRadius={'16px'}
+          p={'20px'}
+          fontWeight={'bold'}
+          mb={'10px'}
+          w={'100%'}
+          justifyContent={"space-between"}
+        >
+          <Stack  spacing={'20px'} alignSelf={'center'}>
+            <Heading fontSize={'xl'}>
+              Increase Your Knowledge By Learning!
+            </Heading>
+            <Text fontWeight={'500'}>
+              We have new method to new learning process, More faster, secure
+              and easy to user!
+            </Text>
+            <Button colorScheme="purple" mt={'20px'}>
+              ok! take me there
+            </Button>
+          </Stack>
+          <Box alignSelf={'center'}>
+            <Img h={'200px'} src={saly2} alt="" />
           </Box>
         </Box>
-        <Box display="flex" gap="20px" mt={'20px'}>
-          <Box
-            display="flex"
-            flexDirection={'column'}
-            boxShadow="base"
-            w="50%"
-            h="150px"
-            bg={'white'}
-            borderRadius={'16px'}
-            p={'20px'}
-            fontWeight={'bold'}
-          >
-            <Text>65787</Text>
-            <Text>Total Students</Text>
-          </Box>
-          <Box
-            display="flex"
-            flexDirection={'column'}
-            boxShadow="base"
-            w="50%"
-            h="150px"
-            bg={'white'}
-            borderRadius={'16px'}
-            p={'20px'}
-            fontWeight={'bold'}
-          >
-            <Text>65787</Text>
-            <Text>Total Students</Text>
-          </Box>
-        </Box>
-      </Box>
+        <Box display="flex"  gap="20px">
+          <Orders/>
 
-      <Box
-        display="flex"
-        w="50%"
-        gap="20px"
-        boxShadow="base"
-        bg={'white'}
-        borderRadius={'16px'}
-        p={'20px'}
-        fontWeight={'bold'}
-      >
-        <Stack w="60%" spacing={'20px'} alignSelf={'center'}>
-          <Heading fontSize={'xl'}>
-            Increase Your Knowledge By Learning!
-          </Heading>
-          <Text fontWeight={'500'}>
-            We have new method to new learning process, More faster, secure and
-            easy to user!
-          </Text>
-          <Button colorScheme="purple" mt={'20px'}>
-            ok! take me there
-          </Button>
-        </Stack>
-        <Box w={'40%'} alignSelf={'center'}>
-          <Img w="100%" src={saly2} alt="" />
         </Box>
       </Box>
     </Box>

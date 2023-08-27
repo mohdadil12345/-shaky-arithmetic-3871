@@ -31,9 +31,11 @@ import {
   }) {
   
 
+    const navig = useNavigate()
   
-const view_course = ()=> {
-    
+const view_course = (id)=> {
+  // console.log(id)
+    navig(`/coursedetails/${id}`);
 }
   
 
@@ -52,7 +54,7 @@ const view_course = ()=> {
               {name}
             </Heading>
             <Text color="purple.800">{duration}</Text>
-            <Button onClick={()=> view_course()}>View Course</Button>
+            <Button onClick={()=> view_course(id)}>View Course</Button>
           </Stack>
         </CardBody>
       </Card>
