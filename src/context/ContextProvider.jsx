@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { createContext, useState } from 'react';
-
+import { useToast } from '@chakra-ui/react'
 export const authval = createContext();
 
 let student =
@@ -7010,8 +7011,8 @@ const initialData = {
   email: '',
   password: '',
 };
-
 function ContextProvider({ children }) {
+    const toast = useToast()
   const [state, setstate] = useState(initialData);
   const [cartitem, setcartitem] = useState([]);
   const [myOrder, setmyOrder] = useState([]);
@@ -7039,6 +7040,24 @@ function ContextProvider({ children }) {
 
   const BuyNow = () => {
     setmyOrder(cartitem)
+    cartitem.forEach(element => {
+        axios
+        .delete(`https://semi-mock2.onrender.com/course-cart/${element.id}`)
+        .then(res => {
+          // console.log(res.data);
+          toast({
+            title: 'item Purchased successfully',
+            description: "Purchased item is in dashboard",
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+            position:"top"
+          })
+  
+        })
+        .catch(error => {
+        });
+    });
     setcartitem([])
   };
 

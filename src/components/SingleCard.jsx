@@ -75,6 +75,42 @@ function SingleCard({
       })
     }
   };
+  const buynowbtn = item => {
+    console.log(item);
+    const isItemInCart = cartitem.some(cartItem => cartItem.id === item.id);
+
+    if (!isItemInCart) {
+      axios
+        .post(`https://semi-mock2.onrender.com/course-cart`, item)
+        .then(res => {
+          // console.log(res.data);
+          setcartitem([...cartitem, item]); 
+          toast({
+            title: 'item added to cart',
+            description: "Please go to cart to Buy now",
+            status: 'info',
+            duration: 9000,
+            isClosable: true,
+            position:'top-right'
+          })
+         
+        })
+        .catch(error => {
+          console.error('Error adding item to cart:', error);
+        });
+    }   else {
+      // Display a message if the item is already in the cart
+      toast({
+        title: 'item is already in cart',
+        description: "add new item",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+        position:"top"
+      })
+    }
+    navig(`/cart`);
+  };
 
   return (
     <Card maxW="sm">
@@ -104,12 +140,13 @@ function SingleCard({
         >
           <Button
             onClick={() => addTocartBtn(item)}
+            
             variant="solid"
             colorScheme="purple"
           >
             Add to cart
           </Button>
-          <Button variant="solid" colorScheme="green">
+          <Button onClick={() => buynowbtn(item)} variant="solid" colorScheme="green">
             Buy now
           </Button>
         </Box>

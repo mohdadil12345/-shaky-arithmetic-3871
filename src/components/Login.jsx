@@ -55,7 +55,10 @@ function Login() {
       })
 
       login(checklogin);
-       nav("/")
+      if(checklogin){
+
+        nav("/courses")
+      }
        onClose()
     } else {
       toast({
