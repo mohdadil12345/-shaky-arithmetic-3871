@@ -23,7 +23,7 @@ const {globaldata, setGlobalData, courdata, setCourdata} = useContext(authval)
   const fetchdata = async () => {
    
     try {
-      let res = await fetch(`https://semi-mock2.onrender.com/courses`);
+      let res = await fetch(`https://semi-mock2.onrender.com/courses_online`);
       let data = await res.json();
       console.log(data);
       setCourdata(data);

@@ -28,7 +28,7 @@ function DetailsPage() {
 
 
     const fetchData = id => {
-        axios.get(`https://semi-mock2.onrender.com/courses/${id}`).then(res => {
+        axios.get(`https://semi-mock2.onrender.com/courses_online/${id}`).then(res => {
             // console.log(res.data);
             setdata(res.data);
             setshowData(true);
