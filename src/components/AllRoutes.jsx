@@ -20,8 +20,8 @@ function AllRoutes() {
       minH={'calc(100vh - 60px - 287px)'}
     >
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<Courses />} />
+        <Route path="/" element={<Courses />} />
+        <Route path="/courses" element={<Home />} />
         <Route path="/details/:id" element={<DetailsPage/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/payments" element={<Payment/>} />

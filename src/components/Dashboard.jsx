@@ -17,12 +17,12 @@ import { authval } from '../context/ContextProvider';
 
 let linkData = [
   {
-    name: 'Dashboard',
+    name: 'courses',
     link: '/',
     iconName: <FaIdCardAlt />,
   },
   {
-    name: 'courses',
+    name: 'Dashboard',
     link: '/courses',
     iconName: <FaGraduationCap />,
   },
